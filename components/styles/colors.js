@@ -15,5 +15,6 @@ export default Colors = {
     purple: '#9C27B0',
     green: '#4CAF50',
     white: '#ffffff',
-    black: '#000000'
+    black: '#000000',
+    maintabcolor: '#F5FCFF'
   };

@@ -1,11 +1,28 @@
 
 import { Dimensions, StyleSheet } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+
+export const introductionViewStyles = StyleSheet.create({
+ 
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        backgroundColor: Colors.maintabcolor,
+        justifyContent:"space-between",
+        flexDirection:"column"
+    }
+   
+ 
+ 
+
+
+});
+
 export const contactViewStyles = StyleSheet.create({
  
     container:{
         flex:1,
-        backgroundColor:'#0082c8',
+        backgroundColor:Colors.maintabcolor,
         justifyContent:'center'
     },
     input:{
@@ -28,7 +45,7 @@ export const contactViewStyles = StyleSheet.create({
         marginRight:10
     },
     text_title:{
-        color:Colors.white,
+        color:Colors.black,
         fontSize:16,
         marginLeft:10,
         marginRight:10,

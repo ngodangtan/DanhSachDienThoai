@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import { contactViewStyles } from '../styles/styles';
 import { ScrollView } from 'react-native-gesture-handler';
+import { sendContactInfo } from '../Networking/service'
 export default class ContactView extends Component {
     constructor(props) {
         super(props)
@@ -78,6 +79,16 @@ export default class ContactView extends Component {
             alert('Vui lòng nhập nội dung liên hệ')
             return
         }
+        const contact_info = {
+            name: this.state.HoTen,
+            phone: this.state.Phone,
+            email: this.state.Email,
+            note: this.state.Note
+        }
+        console.log(contact_info)
+        sendContactInfo(contact_info).then((result) => {
+            alert(result)
+        })
 
     }
 }
