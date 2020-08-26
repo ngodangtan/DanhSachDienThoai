@@ -16,7 +16,7 @@ export default class IphoneView extends Component {
         this.setState({ so: this.state.so + 1 });
     }
     componentDidMount() {
-        getListPhone("").then((result) => {
+        getListPhone().then((result) => {
             Iphone.Iphone = result;
             this.refreshFlatList();
         })

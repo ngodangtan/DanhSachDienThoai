@@ -23,7 +23,7 @@ async function sendContactInfo(params){
     }
 }
 
-async function getListPhone(params){
+async function getListPhone(){
     try {
         let response = await fetch(`${DomainDT}${phoneAPI}`, {
        

@@ -17,7 +17,7 @@ export default class AndroidPhoneView extends Component {
     }
     componentDidMount() {
 
-        getListPhone("").then((result) => {
+        getListPhone().then((result) => {
             Android_Phone.Android_Phone = result;
             this.refreshFlatList();
         })
