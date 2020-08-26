@@ -3,18 +3,7 @@ import { View, Text, Image, FlatList, TouchableOpacity, StyleSheet, ActivityIndi
 import Iphone from '../models/Ios';
 import { format_number } from '../Common/Dung_chung';
 import { DomainImage } from '../Networking/domain'
-const formatData = (data, numColumns) => {
-    const numberOfFullRows = Math.floor(data.length / numColumns);
 
-    let numberOfElementsLastRow = data.length - (numberOfFullRows * numColumns);
-    while (numberOfElementsLastRow !== numColumns && numberOfElementsLastRow !== 0) {
-        data.push({ key: `blank-${numberOfElementsLastRow}`, empty: true });
-        numberOfElementsLastRow++;
-    }
-
-    return data;
-};
-const numColumns = 2;
 export default class IphoneView extends Component {
     constructor(props) {
         super(props);
@@ -45,7 +34,7 @@ export default class IphoneView extends Component {
                 <View >
 
                     <FlatList
-                        data={formatData(Iphone.Iphone, numColumns)}
+                        data={Iphone.Iphone}
                         keyExtractor={(item) => item.Ma_so}
                         renderItem={({ item, index }) => {
                             return (
@@ -53,7 +42,6 @@ export default class IphoneView extends Component {
                                 </FlatListItemIphone>
                             );
                         }}>
-                        numColumns={numColumns}
                     </FlatList>
                 </View>
             );
