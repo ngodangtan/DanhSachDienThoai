@@ -19,7 +19,7 @@ content.propTypes = {
 }
 content.defaultProps = {
     hoten: 'Ngô Đăng Tân',
-    email: 'Email: ngodangtan1994@gmail.com'
+    email: 'ngodangtan1994@gmail.com'
 }
 
 const styles = StyleSheet.create({

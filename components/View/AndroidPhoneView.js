@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {View, Text,Image, FlatList, TouchableOpacity, StyleSheet,ActivityIndicator} from 'react-native';
 import Android_Phone from '../models/Android';
 import { format_number } from '../Common/Dung_chung';
-
+import {DomainImage} from '../Networking/domain'
 export default class AndroidPhoneView extends Component {
     constructor(props) {
         super(props);
@@ -71,12 +71,13 @@ class FlatListItemAndroid extends Component {
             <View style={style.container}>
                 <View style={{ flex: 1, flexDirection: "column" }}>
                     <View style={{ flex: 1, flexDirection: "row", backgroundColor: "#e5f6ff" }}>
-                        <Image style={{ height: 80, width: 120, margin: 5 }} source={{ uri: this.props.item.Hinh }}></Image>
+                        <Image style={{ height: 80, width: 120, margin: 5 }} source={{ uri: `${DomainImage}${this.props.item.Ma_so}.png`}} resizeMode='contain'></Image>
                         <View style={{ flex: 1, flexDirection: "column", height: 30 }}>
                             <TouchableOpacity onPress={this.XL_Xuat_thong_tin.bind(this)} activeOpacity={0.5}>
                                 <Text style={style.itemText}>{this.props.item.Ten}</Text>
                             </TouchableOpacity>
                             <Text style={style.itemText}>Đơn giá: {format_number(this.props.item.Don_gia_Ban.toString()) + ' VNĐ'}</Text>
+                            <Text style={style.itemText}>Đơn giá: {format_number(this.props.item.Don_gia_Nhap.toString()) + ' VNĐ'}</Text>
                         </View>
                     </View>
                     <View style={{ height: 1, backgroundColor: "#e6e5e5" }}></View>

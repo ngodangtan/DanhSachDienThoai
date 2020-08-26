@@ -77,6 +77,7 @@ class FlatListItemIphone extends Component {
                                 <Text style={style.itemText}>{this.props.item.Ten}</Text>
                             </TouchableOpacity>
                             <Text style={style.itemText}>Đơn giá: {format_number(this.props.item.Don_gia_Ban.toString()) + ' VNĐ'}</Text>
+                            <Text style={style.itemText}>Đơn giá: {format_number(this.props.item.Don_gia_Nhap.toString()) + ' VNĐ'}</Text>
                         </View>
                     </View>
                     <View style={{ height: 1, backgroundColor: "#e6e5e5" }}></View>
