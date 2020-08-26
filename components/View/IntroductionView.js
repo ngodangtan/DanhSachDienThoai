@@ -10,7 +10,7 @@ export default class IntroductionView extends Component{
         return(
             <View style={introductionViewStyles.container}>
                 <Heading message={'Trung Tâm Tin Học'} message1={'Bài tập React Native Danh sách điện thoại'} />
-                <Content hoten={'HV: Ngô Đăng Tân'} email={'Email: ngodangtan1994@gmail.com'} />
+                <Content hoten={'Ngô Đăng Tân'} email={'ngodangtan1994@gmail.com'} />
          
                 <Footer tieu_de={'SĐT: 0764267324'} />
             </View>

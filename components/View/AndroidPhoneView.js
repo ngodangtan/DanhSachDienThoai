@@ -4,6 +4,7 @@ import Android_Phone from '../models/Android';
 import { format_number } from '../Common/Dung_chung';
 import {DomainImage} from '../Networking/domain'
 import { getListPhone } from '../Networking/service'
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 export default class AndroidPhoneView extends Component {
     constructor(props) {
         super(props);
@@ -18,7 +19,7 @@ export default class AndroidPhoneView extends Component {
     componentDidMount() {
 
         getListPhone().then((result) => {
-            Android_Phone.Android_Phone = result;
+            Android_Phone.Android_Phone = result.filter(x => x.Nhom_Dien_thoai.Ma_so.includes('ANDROID') );
             this.refreshFlatList();
         })
         
@@ -94,11 +95,7 @@ const style = StyleSheet.create({
         backgroundColor: '#e5f6ff',
 
     },
-    container_search: {
-        flex: 1,
-        backgroundColor: '#e5f6ff',
-
-    },
+  
     input: {
         height: 44,
         paddingHorizontal: 6,
@@ -106,14 +103,7 @@ const style = StyleSheet.create({
         margin: 5,
         borderRadius: 5
     },
-    button: {
-        height: 46,
-        borderRadius: 5,
-        margin: 5,
-        backgroundColor: '#0082c8',
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
+  
     text: {
         color: '#ffffff',
         fontSize: 16,
@@ -126,6 +116,11 @@ const style = StyleSheet.create({
         borderTopRightRadius: 10,
         borderBottomLeftRadius: 10,
         borderBottomRightRadius: 10
+    },
+    itemTextTitle: {
+        color: "#000000",
+        padding: 5,
+        fontSize: 14
     },
     itemText: {
         color: "#000000",

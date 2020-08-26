@@ -33,6 +33,8 @@ export const contactViewStyles = StyleSheet.create({
         borderRadius:5,
         marginLeft:10,
         marginRight:10,
+        borderWidth: 1,
+        borderColor: 'lightgrey'
     
     },
     input_detail:{
@@ -42,7 +44,9 @@ export const contactViewStyles = StyleSheet.create({
         margin: 5,
         borderRadius:5,
         marginLeft:10,
-        marginRight:10
+        marginRight:10,
+        borderWidth: 1,
+        borderColor: 'lightgrey'
     },
     text_title:{
         color:Colors.black,
@@ -68,6 +72,85 @@ export const contactViewStyles = StyleSheet.create({
     }
  
  
+
+
+});
+export const flatlistItemAndroidStyles = StyleSheet.create({
+ 
+    container: {
+        flex: 1,
+        backgroundColor: '#e5f6ff',
+
+    },
+  
+    input: {
+        height: 44,
+        paddingHorizontal: 6,
+        backgroundColor: '#ffffff',
+        margin: 5,
+        borderRadius: 5
+    },
+  
+    text: {
+        color: '#ffffff',
+        fontSize: 16,
+    },
+    image: {
+        height: 160,
+        width: 240,
+        marginBottom: 20,
+        borderTopLeftRadius: 10,
+        borderTopRightRadius: 10,
+        borderBottomLeftRadius: 10,
+        borderBottomRightRadius: 10
+    },
+    itemTextTitle: {
+        color: "#000000",
+        padding: 5,
+        fontSize: 14
+    },
+    itemText: {
+        color: "#000000",
+        padding: 5,
+        fontSize: 14
+    }
+
+
+});
+export const flatlistItemIphoneStyles = StyleSheet.create({
+ 
+    container: {
+        flex: 1,
+        backgroundColor: '#e5f6ff',
+
+    },
+
+    input: {
+        height: 44,
+        paddingHorizontal: 6,
+        backgroundColor: '#ffffff',
+        margin: 5,
+        borderRadius: 5
+    },
+
+    text: {
+        color: '#ffffff',
+        fontSize: 16,
+    },
+    image: {
+        height: 160,
+        width: 240,
+        marginBottom: 20,
+        borderTopLeftRadius: 10,
+        borderTopRightRadius: 10,
+        borderBottomLeftRadius: 10,
+        borderBottomRightRadius: 10
+    },
+    itemText: {
+        color: "#000000",
+        padding: 5,
+        fontSize: 14
+    }
 
 
 });
