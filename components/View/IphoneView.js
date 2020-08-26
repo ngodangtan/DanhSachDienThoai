@@ -1,8 +1,20 @@
 import React, { Component } from 'react';
-import {View, Text,Image, FlatList, TouchableOpacity, StyleSheet,ActivityIndicator} from 'react-native';
+import { View, Text, Image, FlatList, TouchableOpacity, StyleSheet, ActivityIndicator } from 'react-native';
 import Iphone from '../models/Ios';
 import { format_number } from '../Common/Dung_chung';
+import { DomainImage } from '../Networking/domain'
+const formatData = (data, numColumns) => {
+    const numberOfFullRows = Math.floor(data.length / numColumns);
 
+    let numberOfElementsLastRow = data.length - (numberOfFullRows * numColumns);
+    while (numberOfElementsLastRow !== numColumns && numberOfElementsLastRow !== 0) {
+        data.push({ key: `blank-${numberOfElementsLastRow}`, empty: true });
+        numberOfElementsLastRow++;
+    }
+
+    return data;
+};
+const numColumns = 2;
 export default class IphoneView extends Component {
     constructor(props) {
         super(props);
@@ -33,7 +45,7 @@ export default class IphoneView extends Component {
                 <View >
 
                     <FlatList
-                        data={Iphone.Iphone}
+                        data={formatData(Iphone.Iphone, numColumns)}
                         keyExtractor={(item) => item.Ma_so}
                         renderItem={({ item, index }) => {
                             return (
@@ -41,6 +53,7 @@ export default class IphoneView extends Component {
                                 </FlatListItemIphone>
                             );
                         }}>
+                        numColumns={numColumns}
                     </FlatList>
                 </View>
             );
@@ -53,6 +66,7 @@ export default class IphoneView extends Component {
         }
 
     }
+
 
 }
 
@@ -71,7 +85,7 @@ class FlatListItemIphone extends Component {
             <View style={style.container}>
                 <View style={{ flex: 1, flexDirection: "column" }}>
                     <View style={{ flex: 1, flexDirection: "row", backgroundColor: "#e5f6ff" }}>
-                        <Image style={{ height: 80, width: 120, margin: 5 }} source={{ uri: this.props.item.Hinh }}></Image>
+                        <Image style={{ height: 80, width: 120, margin: 5 }} source={{ uri: `${DomainImage}${this.props.item.Ma_so}.png` }} resizeMode='contain'></Image>
                         <View style={{ flex: 1, flexDirection: "column", height: 30 }}>
                             <TouchableOpacity onPress={this.XL_Xuat_thong_tin.bind(this)} activeOpacity={0.5}>
                                 <Text style={style.itemText}>{this.props.item.Ten}</Text>
