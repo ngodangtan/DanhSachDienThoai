@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { MyDomainApp, contactAPI } from './domain';
+import { MyDomainApp, contactAPI,DomainDT,phoneAPI } from './domain';
 
 async function sendContactInfo(params){
     try {
@@ -22,4 +22,26 @@ async function sendContactInfo(params){
         console.log(`Error is : ${error}`)
     }
 }
+
+async function getListPhone(params){
+    try {
+        let response = await fetch(`${DomainDT}${phoneAPI}`, {
+       
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            
+
+        })
+        console.log(response)
+        let responseJson = await response.json()
+        console.log(responseJson)
+        return responseJson
+    } catch (error) {
+        console.log(`Error is : ${error}`)
+    }
+}
+
 export {sendContactInfo}
+export {getListPhone}

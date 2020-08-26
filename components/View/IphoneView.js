@@ -3,7 +3,7 @@ import { View, Text, Image, FlatList, TouchableOpacity, StyleSheet, ActivityIndi
 import Iphone from '../models/Ios';
 import { format_number } from '../Common/Dung_chung';
 import { DomainImage } from '../Networking/domain'
-
+import { getListPhone } from '../Networking/service'
 export default class IphoneView extends Component {
     constructor(props) {
         super(props);
@@ -16,17 +16,10 @@ export default class IphoneView extends Component {
         this.setState({ so: this.state.so + 1 });
     }
     componentDidMount() {
-
-        fetch('https://servicedatajs.herokuapp.com/Danh_sach_Dien_thoai')
-            .then((response) => response.json())
-            .then((responseData) => {
-                //console.log(responseData);
-                Iphone.Iphone = responseData;
-                this.refreshFlatList();
-            })
-            .catch((error) => {
-                console.error(error);
-            })
+        getListPhone("").then((result) => {
+            Iphone.Iphone = result;
+            this.refreshFlatList();
+        })
     }
     render() {
         if (this.state.so != 0) {

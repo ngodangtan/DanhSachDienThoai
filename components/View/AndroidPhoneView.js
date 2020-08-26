@@ -3,6 +3,7 @@ import {View, Text,Image, FlatList, TouchableOpacity, StyleSheet,ActivityIndicat
 import Android_Phone from '../models/Android';
 import { format_number } from '../Common/Dung_chung';
 import {DomainImage} from '../Networking/domain'
+import { getListPhone } from '../Networking/service'
 export default class AndroidPhoneView extends Component {
     constructor(props) {
         super(props);
@@ -16,17 +17,13 @@ export default class AndroidPhoneView extends Component {
     }
     componentDidMount() {
 
-        fetch('https://servicedatajs.herokuapp.com/Danh_sach_Dien_thoai')
-            .then((response) => response.json())
-            .then((responseData) => {
-                //console.log(responseData);
-                Android_Phone.Android_Phone = responseData;
-                this.refreshFlatList();
-            })
-            .catch((error) => {
-                console.error(error);
-            })
+        getListPhone("").then((result) => {
+            Android_Phone.Android_Phone = result;
+            this.refreshFlatList();
+        })
+        
     }
+
     render() {
         if (this.state.so != 0) {
             return (
